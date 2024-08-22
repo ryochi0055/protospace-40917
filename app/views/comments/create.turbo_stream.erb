@@ -1,0 +1,5 @@
+<% if @comment.errors.any? %>
+  <%= turbo_stream.replace "comment_form", partial: "comments/form", locals: { prototype: @prototype, comment: @comment } %>
+<% else %>
+  <%= turbo_stream.append "comments_list", partial: "comments/comment", locals: { comment: @comment } %>
+<% end %>
